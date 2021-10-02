@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
     [HideInInspector] public float ArrowVelocity;
+	[HideInInspector] public float ArrowDamage;
 	[SerializeField] Rigidbody2D rb;
+
 
 	private void Start() {
 		Destroy(gameObject, 4f);
@@ -15,6 +17,10 @@ public class Arrow : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
-		Destroy(gameObject);
+		if (other.gameObject.tag == "Enemy") {
+			Enemy enemy = other.gameObject.GetComponent<Enemy>();
+			enemy.TakeDamage(ArrowDamage);
+		}
+		Destroy(gameObject);		
 	}
 }
