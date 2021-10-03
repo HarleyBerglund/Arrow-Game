@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private Slider healthSlider;
 
+    public Animator animator;
+
     private void Start() {
         health = maxHealth;
         healthSlider.maxValue = maxHealth;
@@ -26,9 +28,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void PlayerDied() {
+    public IEnumerator WaitTime(float time) {
+        yield return new WaitForSeconds(time);
         LevelManager.instance.GameOver();
         gameObject.SetActive(false);
+    }
+
+    private void PlayerDied() {
+        animator.SetBool("IsDead", true);
+        StartCoroutine(WaitTime(2f));
     }
 
     private void OnGUI() {

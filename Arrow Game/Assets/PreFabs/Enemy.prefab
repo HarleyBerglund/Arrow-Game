@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 7624514821911469183}
   - component: {fileID: 7624514821911469056}
   - component: {fileID: 7624514821911469057}
-  - component: {fileID: 7353473265682364490}
+  - component: {fileID: 4600994163243023656}
+  - component: {fileID: 4439711080125852545}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36abb3b5e7638c545934cf5f9a35f0c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6.8, y: 4.72}
@@ -164,11 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf32448fe5dda734dbd169b3b73c8d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   attackDamage: 10
   attackSpeed: 1
   maxHealth: 30
---- !u!50 &7353473265682364490
+  animator: {fileID: 4439711080125852545}
+--- !u!50 &4600994163243023656
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -180,12 +182,31 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &4439711080125852545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624514821911469058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 284f7c3fafc76e14eb3139c19c97d6d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

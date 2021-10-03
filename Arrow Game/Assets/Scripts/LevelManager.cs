@@ -9,9 +9,7 @@ public class LevelManager : MonoBehaviour
     private void Awake() {
         if (LevelManager.instance == null) {
             instance = this;
-        } else {
-            Destroy(gameObject);
-        }
+        } 
     }
 
     public void GameOver() {
