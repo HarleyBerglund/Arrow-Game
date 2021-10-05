@@ -25,13 +25,22 @@ public class Enemy : MonoBehaviour {
 		health = maxHealth;
 	}
 
+	public IEnumerator WaitTime(float time) {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
+
+	private void EnemyDied() {
+        animator.SetBool("EnemyDead", true);
+        StartCoroutine(WaitTime(0.6f));
+    }
+
 	public void TakeDamage(float dmg) {
 		health -= dmg;
 		Debug.Log("Enemy Health: " + health);
 
 		if (health <= 0) {
-			animator.SetBool("EnemyDead", true);
-			Destroy(gameObject);
+			EnemyDied();
 		}
 	}
 
@@ -44,16 +53,14 @@ public class Enemy : MonoBehaviour {
 		} else {
 			animator.SetBool("IsWalking", false);
 		}
-		if (transform.position.x - target.position.x > 0 && !m_FacingRight)
+		if (transform.position.x - target.position.x < 0 && !m_FacingRight)
 			{
 				Flip();
 			}
-			else if (transform.position.x - target.position.x < 0 && m_FacingRight) 
+			else if (transform.position.x - target.position.x > 0 && m_FacingRight) 
 			{
 				Flip();
 			}
-		//Debug.Log(transform.position.x - target.position.x);
-
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {

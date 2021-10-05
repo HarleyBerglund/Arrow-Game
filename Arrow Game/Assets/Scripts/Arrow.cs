@@ -20,6 +20,17 @@ public class Arrow : MonoBehaviour {
 		if (other.gameObject.tag == "Enemy") {
 			Enemy enemy = other.gameObject.GetComponent<Enemy>();
 			enemy.TakeDamage(ArrowDamage);
+		} 
+
+		if (other.gameObject.tag == "Boss") {
+			BossHealth boss = other.gameObject.GetComponent<BossHealth>();
+			boss.TakeDamage(ArrowDamage);
+		} 
+
+		if (other.gameObject.tag == "Other") {
+			GoToBoss level = other.gameObject.GetComponent<GoToBoss>();
+			string nextLevel = "Boss";
+			level.changeScene(nextLevel);
 		}
 		Destroy(gameObject);		
 	}

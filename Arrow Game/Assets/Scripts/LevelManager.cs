@@ -18,4 +18,11 @@ public class LevelManager : MonoBehaviour
             _ui.ToggleDeathPanel();
         }
     }
+
+    public void GameWin() {
+        UIManager _ui = GetComponent<UIManager>();
+        if (_ui != null) {
+            _ui.ToggleWinPanel();
+        }
+    }
 }

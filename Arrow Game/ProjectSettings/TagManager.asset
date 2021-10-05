@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Boss
+  - Other
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - PlayerProjectile
   - Player
   - Obstacle
-  - 
+  - Boss
   - 
   - 
   - 
